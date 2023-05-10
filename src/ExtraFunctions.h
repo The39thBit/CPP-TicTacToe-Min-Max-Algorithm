@@ -1,3 +1,5 @@
+//my_ostream template --> rubenvb//https://stackoverflow.com/users/256138/rubenvb in response to https://stackoverflow.com/questions/14155364/redirect-the-copy-of-stdcout-to-the-file
+
 #pragma once
 #include <vector>
 #include <cstdlib>
@@ -10,19 +12,18 @@
 class my_ostream
 {
 public:
-    my_ostream() : my_fstream("Output.txt") {}; // check if opening file succeeded!!
-    // for regular output of variables and stuff
+    my_ostream() : my_fstream("Output.txt") {}; 
     template<typename T> my_ostream& operator<<(const T& something)
     {
         
         my_fstream << something;
         return *this;
     }
-    // for manipulators like std::endl
+   
     typedef std::ostream& (*stream_function)(std::ostream&);
     my_ostream& operator<<(stream_function func)
     {
-        //func(std::cout);
+        
         func(my_fstream);
         return *this;
     }
@@ -32,25 +33,27 @@ private:
 class my_rstream
 {
 public:
-    my_rstream() : my_fstream("GameResult.txt") {}; // check if opening file succeeded!!
-    // for regular output of variables and stuff
+    my_rstream() : my_fstream("GameResult.txt") {}; 
     template<typename T> my_rstream& operator<<(const T& something)
     {
 
         my_fstream << something;
         return *this;
     }
-    // for manipulators like std::endl
+   
     typedef std::ostream& (*stream_function)(std::ostream&);
     my_rstream& operator<<(stream_function func)
     {
-        //func(std::cout);
+       
         func(my_fstream);
         return *this;
     }
 private:
     std::ofstream my_fstream;
 };
+
+//Abdurrahman Aliyu Gambo || The39thBit ||March 2023
+
 int VectorToInt(std::vector<int> v)
 {
     reverse(v.begin(), v.end());
