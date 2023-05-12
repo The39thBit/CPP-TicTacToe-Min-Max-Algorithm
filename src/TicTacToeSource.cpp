@@ -1,4 +1,4 @@
-//Abdurrahman Aliyu Gambo || Th39thBit ||March 2023
+//Abdurrahman Aliyu Gambo || The39thBit ||March 2023
 #include "TicTacToeVector.h"
 #include<ctype.h>
 #include <iostream>
